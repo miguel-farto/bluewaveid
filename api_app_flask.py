@@ -31,6 +31,10 @@ model_detect = Net(num_class=1055)
 model_detect.load_state_dict(torch.load("weights.pt", map_location=torch.device('cpu'))["state_dict"])
 model_detect.eval()
 
+@app.route('/hello')
+def home():
+   return "<p>Home</p>"
+
 @app.route('/', methods=["POST"])
 def post():
 
